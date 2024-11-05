@@ -3,7 +3,7 @@ package Exceptions;
 public class Step1 {
     public static void main(String[] args) {
         Pessoa lucas = new Pessoa("Lucas", 3.49);
-        Pessoa rafa = new Pessoa("Rafael", 1);
+        Pessoa rafa = new Pessoa("Rafael", 0);
 
         lucas.Hello();
 
@@ -13,6 +13,7 @@ public class Step1 {
             System.out.println(e.getMessage());
         }
 
+        
         // Dividindo
         try {
             double resul = 0;

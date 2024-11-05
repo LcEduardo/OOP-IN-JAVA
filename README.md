@@ -280,3 +280,5 @@ public class Luffy extends Personagem implements Fruta {
 ```
 
 No exemplo acima, ``Luffy`` deriva de ``Personagem`` e tem contrato com a interface ``Fruta``.
+
+## 
