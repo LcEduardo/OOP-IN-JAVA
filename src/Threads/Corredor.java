@@ -11,13 +11,26 @@ public class Corredor implements Runnable {
         this.nome = nome;
     }
 
+    @Override
     public void run(){
-        int numVoltas = 5;
+        try{
+            System.out.println(nome + " está esperando para largar.");
+            semaforo.acquire(); //Adquire uma permissão
+            System.out.println(nome + " começou a correr!");
 
-        for (int i = 1; i <= numVoltas; i++){
+            Thread.sleep((long) (Math.random() * 3000) + 1000);
+            int numVoltas = 5;
 
-            // Simular o tempo de volta.
-            System.out.println(i + " :" + nome);
+            for (int i = 1; i <= numVoltas; i++){
+
+                // Simular o tempo de volta.
+                System.out.println(i + " :" + nome);
+            }
+            System.out.println(nome + " terminou a corrida.");
+        }catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        } finally {
+            semaforo.release(); // Libera a permissão para o próximo corredor
         }
     }
 }
